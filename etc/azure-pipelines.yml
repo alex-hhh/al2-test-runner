@@ -15,7 +15,7 @@ variables:
 
 steps:
 
-- script: bash ./ci/install-racket.sh
+- script: bash ./etc/install-racket.sh
   displayName: 'Instal Racket $(RACKET_VERSION)'
 
   # NOTE: the Azure pipelines build process checks out sources in a directory
