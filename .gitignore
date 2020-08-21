@@ -1,0 +1,18 @@
+# -*- mode: conf -*-
+*.bak
+*~
+\#*\#
+.\#*
+scratch*
+.DS_Store
+Thumbs.db
+*.diff
+*.patch
+# racket puts compiled files in this folder
+compiled/
+ChangeLog
+TAGS
+flycheck_*
+test-results-*.xml
+test/test-results/
+
