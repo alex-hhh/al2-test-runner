@@ -113,7 +113,9 @@ imported in various test management systems.
   When @racket[only] is present, it needs to be a list of test suite names
   followed by test case names, and only these tests will be run.  This is
   intended to be used when debugging a single test in a larger test suite.
-  Tests that are not run will be reported as skipped.
+  Tests that are not run will be reported as skipped.  If the list of test
+  cases is empty, and. only the test suite name is specified, all the tests
+  cases in that test suite are run.
 
   Here is an example of how to run only one test case in the test suite:
 
@@ -136,7 +138,8 @@ imported in various test management systems.
   will be reported as skipped both on the standard output and in the output
   file.  Note that tests can also be skipped using @racket[skip-test].  This
   is indented for disabling tests which do not pass and they cannot be fixed
-  immediately.
+  immediately.  If the list of test cases is empty, and. only the test suite
+  name is specified, all the tests cases in that test suite are excluded.
 
   Here is an example, that will not run "A Test Case":
 

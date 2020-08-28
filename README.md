@@ -31,5 +31,5 @@ raco pkg install al2-test-runner
 ```
 
 For more details, see [the
-documentation](https://docs.racket-lang.org/manual@al2-test-runner/index.html)
+documentation](https://docs.racket-lang.org/al2-test-runner/index.html)
 for this package.

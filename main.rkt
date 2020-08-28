@@ -274,7 +274,7 @@
 
     ;; Invoked when a new test suite beings to run.
     (define/public (on-test-suite-start name)
-      (printf "*** Testsuite ~a~%" name)
+      (printf "~%*** Testsuite ~a~%" name)
       (flush-output)
       ;; If there is a current test suite running, set it aside.  Than start a
       ;; fresh one.
@@ -306,16 +306,18 @@
           (cond (tests-to-run
                  (for/first ([item (in-list tests-to-run)]
                              #:when (equal? (car item) (tsr-name current)))
-                   (for/first ([test (in-list (cdr item))]
-                               #:when (equal? test name))
-                     #t)))
+                   (or (null? (cdr item)) ; empty lists means run only this test suite
+                       (for/first ([test (in-list (cdr item))]
+                                   #:when (equal? test name))
+                         #t))))
                 (excluded-tests
                  (not
                   (for/first ([item (in-list excluded-tests)]
                               #:when (equal? (car item) (tsr-name current)))
-                    (for/first ([test (in-list (cdr item))]
-                                #:when (equal? test name))
-                      #t))))
+                    (or (null? (cdr item)) ; empty list means run only this test suite
+                        (for/first ([test (in-list (cdr item))]
+                                    #:when (equal? test name))
+                          #t)))))
                 (#t #t))
           #t))
 
